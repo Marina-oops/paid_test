@@ -135,6 +135,13 @@ a:hover {
     align-items: center;
 }
 
+.container {
+  position: relative; /* или absolute/fixed в зависимости от нужного поведения */
+  z-index: 100; /* выше, чем у видео (0) и затемнения (1) */
+  margin-top: 50px;
+  display: flex;
+}
+
 .containers_background {
 	backdrop-filter: blur(10px);
 	padding: 16px 24px;
@@ -142,6 +149,11 @@ a:hover {
 	box-sizing: border-box;
   	border-top: 1px solid #fff;
   	border-bottom: 1px solid #fff;
+	width: fit-content;
+}
+
+.container_right {
+	gap: 40px;
 }
 
 .level_containers {
