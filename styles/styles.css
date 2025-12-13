@@ -161,7 +161,7 @@ a:hover {
 .container {
   position: relative;
   z-index: 10;
-  margin-top: 135px;
+  margin-top: 103px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -269,10 +269,12 @@ a:hover {
     vertical-align: middle;
     margin-left: -160px;
 	cursor: pointer;
+	transition: all 0.3s ease-in-out;
 }
 
 .video-btn-wrapper:hover {
-    margin-top: 20px;
+	position: fixed;
+    top: -20px;
 	transition: all 0.3s ease-in-out;
 }
 
