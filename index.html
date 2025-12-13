@@ -13,30 +13,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="video_background">
+  <section class="video_background">
     <video class="absolute inset-0 w-full h-full object-cover" src="video/background_video.m4v" autoplay loop muted playsinline preload="auto"></video>
-  </div>
-  <header class="desktop-header">
-     <div class="top-header">
-        <div class="logo-header"></div>
-        <form class="search-wrapper" action="search.html" method="get">
-          <img src="images/search.png" alt="Поиск" class="search-icon" type="submit">
-          <input type="search" placeholder="Введите название товара" class="search-input" name="query" enterkeyhint="search">
-        </form>
-        <button id="cart-button" class="cart-button"><img src="images/basket.png" alt="Корзина" class="cart-icon">(<span class="cart-count" id="desktop-cart-count">0</span>)</button>
-    </div>
-  </header>
-  
-  <nav class="main-nav">
-    <div class="catalog-btn"><a href="index.html" style="color: #c3f3a7;">КАТАЛОГ</a></div>
-    <ul class="nav-links">
-      <li><a href="about_us.html">о нас</a></li>
-      <li><a href="deliver.html">доставка и оплата</a></li>
-      <li><a href="blog.html">блог</a></li>
-      <li><a href="feedback.html">отзывы</a></li>
-      <li><a href="contacts.html">контакты</a></li>
-    </ul>
-  </nav>
+     <header class="desktop-header">
+       <div class="top-header">
+          <img src="images/paid_logo.png" alt="Logo ">
+          <nav class="main-nav">
+            <ul class="nav-links">
+              <li><a href="about_us.html">Что мы делаем?</a></li>
+              <li><a href="deliver.html">Возможности системы</a></li>
+              <li><a href="blog.html">Услуги</a></li>
+              <li><a href="feedback.html">Технологический стек</a></li>
+              <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+          </nav>
+          <button id="lk-button" class="lk-button">Личный кабинет<img src="images/arrow.png" alt="Стрелка" class="arrow"></button>
+      </div>
+    </header>
+  </section>
   
   <div class="container">
     <aside class="sidebar">
