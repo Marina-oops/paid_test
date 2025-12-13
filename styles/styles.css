@@ -135,3 +135,21 @@ a:hover {
     align-items: center;
 }
 
+.containers_background {
+	backdrop-filter: blur(10px);
+	padding: 16px 24px;
+	border-radius: 16px;
+	box-sizing: border-box;
+  	border-top: 1px solid #fff;
+  	border-bottom: 1px solid #fff;
+}
+
+.level_containers {
+	display: flex;
+	flex-direction: row;
+	gap: 27px;
+}
+.level1 {
+	margin-right: 20px;
+}
+
