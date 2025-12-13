@@ -48,7 +48,11 @@ input {
   border-radius: 0;
 }
 
-img {
+img, video {
   max-width: 100%;
   height: auto;
+}
+
+.video_background {
+	
 }
