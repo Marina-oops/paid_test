@@ -192,6 +192,30 @@ a:hover {
 	display: flex;
 	flex-direction: column;
 	gap: 45px;
+	border-top: 1px solid #52629a;
+    border-bottom: 1px solid #52629a;
+    border-right: 1px solid #ffffff5c;
+    border-left: 1px solid #52629a;
+    backdrop-filter: blur(10px);
+	box-shadow: inset 20px 0 50px rgb(173 216 230 / 10%);
+	
+		&::after {
+	    content: '';
+	    position: absolute;
+	    bottom: -2px; /* на границе */
+	    left: 30%; /* начало свечения */
+	    right: 30%; /* конец свечения */
+	    height: 8px; /* высота свечения */
+	    background: radial-gradient(
+	      ellipse at center,
+	      rgba(255, 255, 255, 0.2) 0%,
+	      rgba(255, 255, 255, 0.05) 60%,
+	      transparent 100%
+	    );
+	    border-radius: 50% 50% 0 0;
+	    z-index: 1;
+	  }
+	
 }
 
 .zayvka {
