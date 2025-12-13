@@ -37,6 +37,10 @@ p {
 		text-align: center;
 }
 
+.light-bold {
+  font-weight: 600;
+}
+
 input {
   padding: 10px 0px;
   border: none;
