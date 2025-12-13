@@ -8,7 +8,6 @@ body {
   font-family: "Roboto", sans-serif;
   color: #fff;
   background-color: #000;
-  line-height: 1.5;
 }
   
 h1 {
@@ -59,27 +58,53 @@ img, video {
     left: 0;
     width: 100%; 
     z-index: 1000; 
-    padding: 32px 20px;
+    padding: 20px 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
+.logo_header {
+	height: 45px;
+}
+
+.top-header {
+	display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav-links {
+	display: flex;
+    justify-content: space-between;
+    gap: 24px;
+	font-weight: 500;
+	font-size: 12px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+		color: rgba(0, 0, 0, 0.71);
+		text-decoration: none; 
+}
+
 #lk-button {
     border: none;
-    padding: 12px 19px;
+    padding: 10px 16px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    border-radius: 15px;
-    font-size: 24px;
+    border-radius: 8px;
+    font-size: 10px;
     font-weight: 400;
-    gap: 5px; 
-}
-
-#lk-button .arrow {
-    width: 32px;
-    height: 32px;
-    margin-right: 5px;
+    gap: 6px;
+    background-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    color: #fff;
 }
