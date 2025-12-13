@@ -53,6 +53,15 @@ img, video {
   height: auto;
 }
 
-.video_background {
-	
+.desktop-header {
+	position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    z-index: 1000; 
+    padding: 32px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
