@@ -248,28 +248,23 @@ a:hover {
 
 /* Контейнер для точной обрезки */
 .video-btn-wrapper {
-  width: 163px;
-  height: 61px;
-  overflow: hidden;
-  border-radius: 8px; /* если нужно */
-  display: inline-block;
-  position: relative;
-  vertical-align: middle;
+    width: 610px;
+    height: 66px;
+    overflow: hidden;
+    border-radius: 8px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    margin-left: -160px;
 }
 
 .video-btn-wrapper video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  
-  /* Для контроля обрезки */
-  object-fit: cover;
-  
-  /* Смещение обрезки (экспериментируйте) */
-  object-position: 50% 50%;
-  
-  /* ИЛИ фиксированное положение */
-  /* object-position: 0px -20px; ← сместить на 20px вверх */
+    position: absolute;
+    top: 0;
+    right: 300px;
+    left: 345px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: -170px -270px;
 }
