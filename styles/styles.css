@@ -65,3 +65,21 @@ img, video {
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
+
+#lk-button {
+    border: none;
+    padding: 12px 19px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    font-size: 24px;
+    font-weight: 400;
+    gap: 5px; 
+}
+
+#lk-button .arrow {
+    width: 32px;
+    height: 32px;
+    margin-right: 5px;
+}
