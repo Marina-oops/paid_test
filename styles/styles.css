@@ -115,7 +115,7 @@ img, video {
 	display: flex;
     justify-content: space-between;
     gap: 24px;
-	font-weight: 500;
+	font-weight: 400;
 	font-size: 12px;
 	letter-spacing: 0.01em;
 }
@@ -146,6 +146,11 @@ a:hover {
 	max-height: 36px;
     height: 100%;
 	letter-spacing: 0.02em;
+}
+
+.lk-button {
+	font-size: 10px;
+    font-weight: 400;
 }
 
 .main-nav {
@@ -263,7 +268,14 @@ a:hover {
     position: relative;
     vertical-align: middle;
     margin-left: -160px;
+	cursor: pointer;
 }
+
+.video-btn-wrapper:hover {
+    margin-top: 20px;
+	transition: all 0.3s ease-in-out;
+}
+
 
 .video-btn-wrapper video {
     position: absolute;
