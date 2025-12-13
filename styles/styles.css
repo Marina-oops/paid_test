@@ -202,17 +202,12 @@ a:hover {
 		&::after {
 	    content: '';
 	    position: absolute;
-	    bottom: -2px; /* на границе */
-	    left: 30%; /* начало свечения */
-	    right: 30%; /* конец свечения */
-	    height: 8px; /* высота свечения */
-	    background: radial-gradient(
-	      ellipse at center,
-	      rgba(255, 255, 255, 0.2) 0%,
-	      rgba(255, 255, 255, 0.05) 60%,
-	      transparent 100%
-	    );
-	    border-radius: 50% 50% 0 0;
+	    bottom: -2px;
+        left: 10%;
+        right: 10%;
+        height: 220px;
+		background: radial-gradient(ellipse at bottom, rgb(52 121 233 / 27%) 0%, rgb(255 255 255 / 0%) 60%, transparent 100%);
+	    border-radius: 80% 80% 0% 0;
 	    z-index: 1;
 	  }
 	
