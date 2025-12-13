@@ -246,3 +246,12 @@ a:hover {
 	letter-spacing: 0.01em;
 }
 
+.video-btn {
+  width: 163px; /* желаемая ширина */
+  height: 78px; /* желаемая высота */
+  object-fit: cover; /* обрезает, сохраняя пропорции */
+  object-position: center; /* центрирует обрезку */
+}
+
+
+
