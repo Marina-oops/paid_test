@@ -273,7 +273,6 @@ a:hover {
 }
 
 .video-btn-wrapper:hover {
-	position: fixed;
     top: -20px;
 	transition: all 0.3s ease-in-out;
 }
