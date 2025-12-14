@@ -798,18 +798,21 @@ a:hover {
 		.lost_cash.animate-on-scroll {
 		    transform: translateY(30px);
 		}
-		
+
+		.text_benefits_paid.animate-on-scroll {
+		    opacity: 0;
+		    visibility: hidden;
+		    transform: translateY(40px);
+		    transition: opacity 0.8s ease 0.8s, transform 0.8s ease 0.8s, visibility 0.8s ease 0.8s;
+		}
+
 		/* Анимация для нижнего текста - появляется снизу */
 		.text_benefits_paid.animate-on-scroll.animated {
 		    opacity: 1;
 		    visibility: visible;
 		    transform: translateY(0);
 		}
-		
-		.text_benefits_paid.animate-on-scroll {
-		    transform: translateY(30px);
-		}
-		
+
 		/* Анимация для градиентного эллипса */
 		#block2::after {
 		    content: '';
@@ -831,7 +834,11 @@ a:hover {
 		    z-index: 1;
 		    mix-blend-mode: overlay;
 		    opacity: 0;
-		    animation: glowPulse 4s ease-in-out infinite;
+		    transition: opacity 1.5s ease-out 0.5s;
+		}
+
+		#block2.animate-gradient::after {
+		    opacity: 0.3;
 		}
 		
 		/* Пульсирующая анимация для градиента */
@@ -846,10 +853,9 @@ a:hover {
 		    }
 		}
 		
-		/* Анимация появления градиента при скролле */
-		#block2.animate-gradient::after {
-		    opacity: 0.3;
-		    transition: opacity 1.5s ease-out;
+		/* Применяем пульсацию после появления */
+		#block2.animate-gradient.ellipse-visible::after {
+		    animation: glowPulse 4s ease-in-out infinite;
 		}
 		
 		/* Стили для счетчика */
