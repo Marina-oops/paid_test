@@ -71,7 +71,52 @@
           <div class="containers_background"><img src="images/analytics_calls.png" alt="analytics_calls "></div>
         </div>
     </div>
+
+  <!-- Модальное окно -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <button class="close-btn" id="closeModal">&times;</button>
+            <div class="modal-header">
+                <h2>Обратная связь</h2>
+                <p>Пожалуйста, заполните форму ниже, чтобы мы могли связаться с вами</p>
+            </div>
+            <div class="modal-content">
+                <div class="input-group">
+                    <label for="name">Ваше имя</label>
+                    <input type="text" id="name" placeholder="Введите ваше имя">
+                </div>
+                <div class="input-group">
+                    <label for="phone">Номер телефона</label>
+                    <input type="tel" id="phone" placeholder="Введите ваш номер телефона">
+                </div>
+                <div class="communication-methods">
+                    <h4>Предпочтительный способ связи:</h4>
+                    <div class="methods-list">
+                        <div class="method-option">
+                            <input type="checkbox" id="whatsapp" name="communication" value="whatsapp">
+                            <label for="whatsapp">WhatsApp</label>
+                        </div>
+                        <div class="method-option">
+                            <input type="checkbox" id="telegram" name="communication" value="telegram">
+                            <label for="telegram">Telegram</label>
+                        </div>
+                        <div class="method-option">
+                            <input type="checkbox" id="phone-call" name="communication" value="phone">
+                            <label for="phone-call">Телефон</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="agree">
+                    <label for="agree">Согласие на обработку персональных данных</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="submit-btn" id="submitBtn">Начать пользоваться</button>
+            </div>
+        </div>
+    </div>
   
-  
+  <script src="scripts/script.js"></script>
 </body>
 </html>
