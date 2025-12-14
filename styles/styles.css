@@ -659,7 +659,7 @@ a:hover {
 		    position: absolute;
 		    top: 30%;
 		    left: 50%;
-		    transform: translate(-50%, -50%) scale(0.7) rotate(0deg);
+		    transform: translate(-50%, -50%) scale(0.1);
 		    width: 25%; /* Ширина эллипса */
 		    height: 40%; /* Высота эллипса */
 		    background: radial-gradient(
@@ -670,15 +670,12 @@ a:hover {
 		        transparent 80%                  
 		    );
 		    border-radius: 50%;
-		    filter: blur(40px) brightness(0.8);
+		    filter: blur(60px) brightness(0.3);
 		    z-index: 1;
 		    mix-blend-mode: lighten; /* Режим наложения для красивого эффекта */
 			opacity: 0; /* Начальное состояние - невидим */
     		transform-origin: center; /* Центр трансформации */
-    		transition: 
-		        opacity 1.2s ease-out 0.3s,
-		        transform 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s,
-		        filter 1.2s ease-out 0.3s;
+    		transition: all 2s cubic-bezier(0.22, 0.61, 0.36, 1);
 		}
 
 		.block2_text {
@@ -810,7 +807,7 @@ a:hover {
 
 		#block2.animate-gradient::after {
 		    opacity: 0.6;
-		    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+		    transform: translate(-50%, -50%) scale(1);
 		    filter: blur(40px) brightness(1);
 		}
 
@@ -818,7 +815,6 @@ a:hover {
 		#block2.animate-gradient.ellipse-visible::after {
 		    animation: 
 				glowPulse 4s ease-in-out infinite,
-        		gentleFloat 8s ease-in-out infinite;
 		}
 
 		.block2_text,
@@ -838,22 +834,12 @@ a:hover {
 		    0%, 100% {
 		        opacity: 0.6;
 		        filter: blur(40px) brightness(1);
+				transform: translate(-50%, -50%) scale(1);
 		    }
 		    50% {
-		        opacity: 0.85;
+		        opacity: 0.9;
 		        filter: blur(35px) brightness(1.2);
-		    }
-		}
-		
-		@keyframes gentleFloat {
-		    0%, 100% {
-		        transform: translate(-50%, -50%) scale(1);
-		    }
-		    33% {
-		        transform: translate(-50%, calc(-50% - 10px)) scale(1.02);
-		    }
-		    66% {
-		        transform: translate(-50%, calc(-50% + 10px)) scale(0.98);
+				transform: translate(-50%, -50%) scale(1.02);
 		    }
 		}
 		
