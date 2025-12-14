@@ -10,6 +10,12 @@ body {
   background-color: #000;
   overflow-x: hidden;
 }
+
+main {
+	display: flex;
+	flex-direction: column;
+	gap: 120px;
+}
   
 h1 {
 		font-weight: 600;
@@ -20,10 +26,28 @@ h1 {
 		text-align: center;
 }
 
+h2 {
+	    font-weight: 600;
+		font-size: 20px;
+		color: #fff;
+	    line-height: 150%;
+	    letter-spacing: 0.01em;
+		text-align: center;
+}
+
 h3 {
 		font-weight: 600;
 		font-size: 20px;
 		color: #3479E9;
+	    line-height: 140%;
+	    letter-spacing: 0.01em;
+		text-align: center;
+}
+
+h4 {
+		font-weight: 600;
+		font-size: 16px;
+		color: #fff;
 	    line-height: 140%;
 	    letter-spacing: 0.01em;
 		text-align: center;
@@ -550,3 +574,78 @@ a:hover {
         .close-btn:hover {
             color: #fff;
 		}
+
+		#block2 {
+			display: flex;
+		    flex-direction: column;
+		    gap: 56px;
+			max-width: 1242px;
+			width: 100%;
+			align-items: center;
+			padding: 0 180px;
+			p {
+				line-height: 140%;
+				opacity: 0.6;
+			}
+		}
+
+		.block2_text {
+			display: flex;
+		    flex-direction: column;
+		    gap: 28px;
+		}
+
+		.block2_inf {
+			display: flex;
+		    flex-direction: row;
+		    gap: 28px;
+		}
+
+		.block2_inf_left,
+        .block2_inf_right {
+			display: flex;
+		    flex-direction: column;
+		    gap: 40px;
+			width: 180px;
+			align-items: center;
+		}
+		.img_pleasure_calls {
+			width: 160px;
+			height: 160px;
+		}
+		.text_pleasure_calls {
+			display: flex;
+		    flex-direction: column;
+		    gap: 16px;
+		}
+
+		.block2_inf_center {
+			display: flex;
+		    flex-direction: column;
+		    justify-content: space-between;
+			align-items: center;
+		}
+		.lost_cash {
+			display: flex;
+		    flex-direction: row;
+		    gap: 36px;
+		}
+		.text_lost_cash {
+			display: flex;
+		    flex-direction: column;
+			gap: 20px;
+		}
+		.t1 {
+			font-weight: 700;
+			font-size: 60px;
+			color: #fff;
+		    line-height: 110%;
+		}
+
+		.text_benefits_paid {
+			display: flex;
+		    flex-direction: column;
+			gap: 12px;
+		}
+
+
