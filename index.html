@@ -88,37 +88,26 @@
             <div class="modal-content">
               <div class="inputs-group">
                 <div class="input-group">
-                    <input type="text" id="name" placeholder="Введите ваше имя">
+                    <input type="text" id="name" placeholder="Ваше имя">
                 </div>
                 <div class="input-group">
-                    <input type="tel" id="phone" placeholder="Введите ваш номер телефона">
+                    <input type="tel" id="phone" placeholder="Номер телефона">
                 </div>
               </div>
                 <div class="communication-methods">
-                    <h4>Предпочтительный способ связи:</h4>
+                    <p>Предпочтительный способ связи:</p>
                     <div class="methods-list">
-                        <div class="method-option">
-                            <input type="checkbox" id="whatsapp" name="communication" value="whatsapp">
-                            <label for="whatsapp">WhatsApp</label>
-                        </div>
-                        <div class="method-option">
-                            <input type="checkbox" id="telegram" name="communication" value="telegram">
-                            <label for="telegram">Telegram</label>
-                        </div>
-                        <div class="method-option">
-                            <input type="checkbox" id="phone-call" name="communication" value="phone">
-                            <label for="phone-call">Телефон</label>
-                        </div>
+                          <button id="wh-button" class="method-option"><img src="images/wa.png" alt="Whatsapp" class="arrow">WhatsApp</button>
+                          <button id="tg-button" class="method-option"><img src="images/tg.png" alt="Telegram" class="arrow">Telegram</button>
+                          <button id="tele-button" class="method-option"><img src="images/tele.png" alt="Telephone" class="arrow">Телефон</button>
                     </div>
                 </div>
                 <div class="checkbox-group">
-                    <input type="checkbox" id="agree">
+                    <input type="radio" id="agree">
                     <label for="agree">Согласие на обработку персональных данных</label>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button class="submit-btn" id="submitBtn">Начать пользоваться</button>
-            </div>
+            <button class="submit-btn" id="submitBtn">Начать пользоваться</button>
         </div>
     </div>
   
