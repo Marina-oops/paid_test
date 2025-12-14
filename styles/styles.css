@@ -459,12 +459,12 @@ a:hover {
 		}
 		
 		.custom-radio input[type="radio"]:hover ~ .checkmark {
-		    border-color: #4facfe;
+		    border-color: #2B65DA;
 		}
 		
 		.custom-radio input[type="radio"]:checked ~ .checkmark {
-		    border-color: #4facfe;
-		    background: #4facfe;
+		    border-color: #fff;
+		    background: #2B65DA;
 		}
 		
 		.custom-radio input[type="radio"]:checked ~ .checkmark::after {
@@ -475,7 +475,7 @@ a:hover {
 		    transform: translate(-50%, -50%);
 		    width: 8px;
 		    height: 8px;
-		    background: white;
+		    background: #2B65DA;
 		    border-radius: 50%;
 		}
 
