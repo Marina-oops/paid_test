@@ -61,9 +61,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // Функция закрытия модального окна
     function closeModalFunc() {
         if (modalOverlay) {
-            modalOverlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
+        modalOverlay.classList.remove('active');
+        document.body.classList.remove('modal-open');
+        
+        // Полностью сбрасываем все стили скролла
+        document.body.style.overflow = '';
+        document.body.style.overflowX = 'hidden';
+        document.body.style.overflowY = 'auto';
+        
+        // Также для html элемента
+        document.documentElement.style.overflow = '';
+        document.documentElement.style.overflowX = 'hidden';
+        document.documentElement.style.overflowY = 'auto';
+        
+        // Убираем возможный padding-right, который мог добавиться из-за скроллбара
+        document.body.style.paddingRight = '0';
+        document.documentElement.style.paddingRight = '0';
+        
+        // Убираем класс затемнения
+        const container = document.querySelector('.container');
+        if (container) {
+            container.classList.remove('blurred-background');
         }
+      }
     }
     
     // Функция отправки формы
