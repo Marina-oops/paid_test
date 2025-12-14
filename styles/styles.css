@@ -583,10 +583,57 @@ a:hover {
 			width: 100%;
 			align-items: center;
 			padding: 0 180px;
+			position: relative;
+			overflow: hidden;
 			p {
 				line-height: 140%;
 				opacity: 0.6;
 			}
+		}
+
+		#block2::before {
+		    content: '';
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+		    width: 100%;
+		    height: 100%;
+		    z-index: 1;
+		}
+
+		.background_block2 {
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+		    width: 100%;
+		    height: 100%;
+		    object-fit: cover;
+		    object-position: center;
+		    z-index: 0;
+		    opacity: 0.9; /* Можно регулировать прозрачность */
+		}
+
+		#block2::after {
+		    content: '';
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+		    width: 80%; /* Ширина эллипса */
+		    height: 60%; /* Высота эллипса */
+		    background: radial-gradient(
+		        ellipse at center,
+		        rgba(255, 105, 180, 0.4) 0%,      /* Розовый прозрачный */
+		        rgba(255, 20, 147, 0.3) 30%,      /* Темно-розовый */
+		        rgba(219, 112, 147, 0.2) 60%,     /* Бледно-лиловый */
+		        transparent 80%                    /* Плавное исчезновение */
+		    );
+		    border-radius: 50%;
+		    filter: blur(40px); /* Размытие для плавного градиента */
+		    z-index: 1;
+		    mix-blend-mode: overlay; /* Режим наложения для красивого эффекта */
 		}
 
 		.block2_text {
@@ -646,6 +693,18 @@ a:hover {
 			display: flex;
 		    flex-direction: column;
 			gap: 12px;
+		}
+
+		.block2_text,
+		.block2_inf,
+		.block2_inf_left,
+		.block2_inf_center,
+		.block2_inf_right,
+		.text_pleasure_calls,
+		.lost_cash,
+		.text_benefits_paid {
+		    position: relative;
+		    z-index: 2; /* Выше фона и градиента */
 		}
 
 
