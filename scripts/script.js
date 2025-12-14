@@ -372,9 +372,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     const lostCash = block2.querySelector('.lost_cash');
                     if (lostCash) {
                         lostCash.classList.add('animated');
-
-                         // Запускаем анимацию стрелок
-                        animateArrows();
                         
                         // Запускаем счетчик
                         const counterElement = lostCash.querySelector('.counter');
@@ -399,6 +396,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     const benefits = block2.querySelector('.text_benefits_paid');
                     if (benefits) benefits.classList.add('animated');
                 }, 800);
+
+                // Запускаем анимацию стрелок
+                setTimeout(() => {
+                        animateArrows();
+                }, 1000);
                 
             }, 100);
         }
