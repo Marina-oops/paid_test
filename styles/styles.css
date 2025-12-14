@@ -748,8 +748,6 @@ a:hover {
 		    visibility: visible !important;
 		}
 
-	
-
 		.t1 {
 			font-weight: 700;
 			font-size: 60px;
@@ -934,33 +932,33 @@ a:hover {
 		
 		/* Левые стрелки - начальные позиции */
 		#group_arrows_left .group_arrow {
-		    transform: translateX(80px) translateY(0px);
+		    transform: translateX(15px) translateY(0px);
 		    transition-delay: 0s;
 		}
 		
 		#group_arrows_left .group_arrow1 {
-		    transform: translateX(100px) translateY(0px);
+		    transform: translateX(10px) translateY(0px);
 		    transition-delay: 0.1s;
 		}
 		
 		#group_arrows_left .group_arrow2 {
-		    transform: translateX(120px) translateY(0px);
+		    transform: translateX(5px) translateY(0px);
 		    transition-delay: 0.2s;
 		}
 		
 		/* Правые стрелки - начальные позиции (уже отраженные) */
 		#group_arrows_right .group_arrow {
-		    transform: translateX(-80px) translateY(0px);
+		    transform: translateX(-15px) translateY(0px);
 		    transition-delay: 0s;
 		}
 		
 		#group_arrows_right .group_arrow1 {
-		    transform: translateX(-100px) translateY(0px);
+		    transform: translateX(-10px) translateY(0px);
 		    transition-delay: 0.1s;
 		}
 		
 		#group_arrows_right .group_arrow2 {
-		    transform: translateX(-120px) translateY(0px);
+		    transform: translateX(-5px) translateY(0px);
 		    transition-delay: 0.2s;
 		}
 		
