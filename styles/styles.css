@@ -866,6 +866,132 @@ a:hover {
 		    animation: countUp 0.5s ease-out forwards;
 		}
 
+		/* Контейнер для стрелок */
+		.group_arrows {
+		    display: flex;
+		    align-items: center;
+		    position: relative;
+		    width: 80px; /* Ширина контейнера */
+		}
+		
+		/* Левые стрелки (оригинальное направление) */
+		#group_arrows_left {
+		    justify-content: flex-end;
+		}
+		
+		/* Правые стрелки (отраженные) */
+		#group_arrows_right {
+		    justify-content: flex-start;
+		    transform: scaleX(-1); /* Отражаем по горизонтали */
+		}
+		
+		/* Общие стили для всех стрелок */
+		.group_arrow,
+		.group_arrow1,
+		.group_arrow2 {
+		    position: absolute;
+		    width: 40px;
+		    height: 40px;
+		    opacity: 0;
+		    filter: drop-shadow(0 0 5px rgba(79, 172, 254, 0.5));
+		    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+		}
+		
+		/* Левые стрелки - начальные позиции */
+		#group_arrows_left .group_arrow {
+		    transform: translateX(-80px) translateY(-20px);
+		    transition-delay: 0s;
+		}
+		
+		#group_arrows_left .group_arrow1 {
+		    transform: translateX(-100px) translateY(0);
+		    transition-delay: 0.1s;
+		}
+		
+		#group_arrows_left .group_arrow2 {
+		    transform: translateX(-120px) translateY(20px);
+		    transition-delay: 0.2s;
+		}
+		
+		/* Правые стрелки - начальные позиции (уже отраженные) */
+		#group_arrows_right .group_arrow {
+		    transform: translateX(80px) translateY(-20px) scaleX(-1);
+		    transition-delay: 0s;
+		}
+		
+		#group_arrows_right .group_arrow1 {
+		    transform: translateX(100px) translateY(0) scaleX(-1);
+		    transition-delay: 0.1s;
+		}
+		
+		#group_arrows_right .group_arrow2 {
+		    transform: translateX(120px) translateY(20px) scaleX(-1);
+		    transition-delay: 0.2s;
+		}
+		
+		/* Конечные позиции для анимации */
+		.lost_cash.animated .group_arrow,
+		.lost_cash.animated .group_arrow1,
+		.lost_cash.animated .group_arrow2 {
+		    opacity: 1;
+		}
+		
+		/* Левые стрелки - конечные позиции */
+		.lost_cash.animated #group_arrows_left .group_arrow {
+		    transform: translateX(-10px) translateY(-20px);
+		}
+		
+		.lost_cash.animated #group_arrows_left .group_arrow1 {
+		    transform: translateX(-15px) translateY(0);
+		}
+		
+		.lost_cash.animated #group_arrows_left .group_arrow2 {
+		    transform: translateX(-20px) translateY(20px);
+		}
+		
+		/* Правые стрелки - конечные позиции */
+		.lost_cash.animated #group_arrows_right .group_arrow {
+		    transform: translateX(10px) translateY(-20px) scaleX(-1);
+		}
+		
+		.lost_cash.animated #group_arrows_right .group_arrow1 {
+		    transform: translateX(15px) translateY(0) scaleX(-1);
+		}
+		
+		.lost_cash.animated #group_arrows_right .group_arrow2 {
+		    transform: translateX(20px) translateY(20px) scaleX(-1);
+		}
+		
+		/* Анимация пульсации после сближения */
+		@keyframes arrowPulse {
+		    0%, 100% {
+		        transform: translateX(-10px) translateY(-20px);
+		    }
+		    50% {
+		        transform: translateX(-8px) translateY(-22px);
+		        filter: drop-shadow(0 0 8px rgba(79, 172, 254, 0.8));
+		    }
+		}
+		
+		@keyframes arrowPulseRight {
+		    0%, 100% {
+		        transform: translateX(10px) translateY(-20px) scaleX(-1);
+		    }
+		    50% {
+		        transform: translateX(8px) translateY(-22px) scaleX(-1);
+		        filter: drop-shadow(0 0 8px rgba(79, 172, 254, 0.8));
+		    }
+		}
+		
+		/* Применяем пульсацию после завершения основной анимации */
+		.lost_cash.arrows-pulsing #group_arrows_left .group_arrow {
+		    animation: arrowPulse 2s ease-in-out infinite;
+		}
+		
+		.lost_cash.arrows-pulsing #group_arrows_right .group_arrow {
+		    animation: arrowPulseRight 2s ease-in-out infinite;
+		}
+
 		@media (max-width: 768px) {
 		  #block1 {
 		    min-height: auto;
