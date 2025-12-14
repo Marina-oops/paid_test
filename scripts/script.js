@@ -59,12 +59,30 @@ document.addEventListener('DOMContentLoaded', function() {
                     btn.classList.remove('active');
                     btn.style.backgroundColor = 'rgb(255 255 255 / 5%)';
                     btn.style.color = '#fff';
+
+                    // Возвращаем обычные иконки для всех неактивных кнопок
+                    const img = btn.querySelector('img');
+                    if (img) {
+                        const altText = img.getAttribute('alt');
+                        if (altText === 'Whatsapp') img.src = 'images/wa.png';
+                        if (altText === 'Telegram') img.src = 'images/tg.png';
+                        if (altText === 'Telephone') img.src = 'images/tele.png';
+                    }
                 });
                 
                 // Добавляем класс active и меняем стили только для выбранной кнопки
                 this.classList.add('active');
                 this.style.backgroundColor = '#fff';
                 this.style.color = '#000';
+
+                // Меняем иконку на активную версию для выбранной кнопки
+                const activeImg = this.querySelector('img');
+                if (activeImg) {
+                    const altText = activeImg.getAttribute('alt');
+                    if (altText === 'Whatsapp') activeImg.src = 'images/wa_act.png';
+                    if (altText === 'Telegram') activeImg.src = 'images/tg_act.png';
+                    if (altText === 'Telephone') activeImg.src = 'images/tele_act.png';
+                }
                 
                 // Сохраняем выбранный способ связи в скрытом поле
                 const methodType = this.id === 'wh-button' ? 'whatsapp' : 
@@ -183,10 +201,18 @@ document.addEventListener('DOMContentLoaded', function() {
             methodButtons.forEach(btn => {
                 btn.classList.remove('active');
                 btn.style.backgroundColor = 'rgb(255 255 255 / 5%)';
-                btn.style.borderColor = 'rgba(255, 255, 255, 0.1)';
                 btn.style.color = '#fff';
+
+                // Возвращаем обычные иконки
+                const img = btn.querySelector('img');
+                if (img) {
+                    const altText = img.getAttribute('alt');
+                    if (altText === 'Whatsapp') img.src = 'images/wa.png';
+                    if (altText === 'Telegram') img.src = 'images/tg.png';
+                    if (altText === 'Telephone') img.src = 'images/tele.png';
+                }
             });
-            
+
             // Удаляем скрытое поле с выбранным методом
             const hiddenInput = document.getElementById('selected-method');
             if (hiddenInput) {
