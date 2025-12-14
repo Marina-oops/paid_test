@@ -290,4 +290,80 @@ document.addEventListener('DOMContentLoaded', function() {
     // Добавляем возможность открытия модального окна из других мест (опционально)
     window.openContactModal = openModal;
     window.closeContactModal = closeModalFunc;
+
+    // Функция для форматирования числа с разделителями
+    function formatNumber(number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    }
+    
+    // Функция для анимации счетчика
+    function animateCounter(element, finalValue, duration = 2000) {
+        let startValue = 0;
+        const increment = finalValue / (duration / 16); // 60fps
+        let currentValue = startValue;
+        
+        function updateCounter() {
+            currentValue += increment;
+            if (currentValue >= finalValue) {
+                element.textContent = formatNumber(finalValue);
+                return;
+            }
+            
+            element.textContent = formatNumber(Math.floor(currentValue));
+            requestAnimationFrame(updateCounter);
+        }
+        
+        updateCounter();
+    }
+    
+    // Функция для проверки видимости элемента
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8
+        );
+    }
+    
+    // Функция для запуска анимации при скролле
+    function handleScrollAnimations() {
+        const block2 = document.getElementById('block2');
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        
+        // Проверяем видимость блока
+        if (isElementInViewport(block2)) {
+            // Добавляем класс для градиента
+            block2.classList.add('animate-gradient');
+            
+            // Анимируем элементы с задержкой
+            animatedElements.forEach(element => {
+                if (isElementInViewport(element) && !element.classList.contains('animated')) {
+                    const delay = element.getAttribute('data-delay') || 0;
+                    
+                    setTimeout(() => {
+                        element.classList.add('animated');
+                        
+                        // Если это элемент с деньгами, запускаем счетчик
+                        if (element.classList.contains('lost_cash')) {
+                            const counterElement = element.querySelector('.counter');
+                            if (counterElement) {
+                                // Запускаем счетчик с небольшой задержкой
+                                setTimeout(() => {
+                                    animateCounter(counterElement, 1500000000, 2500);
+                                }, 500);
+                            }
+                        }
+                    }, parseInt(delay));
+                }
+            });
+        }
+    }
+    
+    // Запускаем при загрузке
+    handleScrollAnimations();
+    
+    // И при скролле
+    window.addEventListener('scroll', handleScrollAnimations);
+    
+    // Опционально: обновляем при ресайзе
+    window.addEventListener('resize', handleScrollAnimations);
 });
