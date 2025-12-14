@@ -748,6 +748,133 @@ a:hover {
 		    z-index: 2; /* Выше фона и градиента */
 		}
 
+		/* Исходное состояние для анимируемых элементов */
+		.animate-on-scroll {
+		    opacity: 0;
+		    visibility: hidden;
+		    transition: opacity 0.8s ease, transform 0.8s ease;
+		}
+		
+		/* Анимация для заголовка - появляется сверху */
+		.block2_text.animate-on-scroll.animated {
+		    opacity: 1;
+		    visibility: visible;
+		    transform: translateY(0);
+		}
+		
+		.block2_text.animate-on-scroll {
+		    transform: translateY(50px);
+		}
+		
+		/* Анимация для левого блока - появляется слева */
+		.block2_inf_left.animate-on-scroll.animated {
+		    opacity: 1;
+		    visibility: visible;
+		    transform: translateX(0);
+		}
+		
+		.block2_inf_left.animate-on-scroll {
+		    transform: translateX(-50px);
+		}
+		
+		/* Анимация для правого блока - появляется справа */
+		.block2_inf_right.animate-on-scroll.animated {
+		    opacity: 1;
+		    visibility: visible;
+		    transform: translateX(0);
+		}
+		
+		.block2_inf_right.animate-on-scroll {
+		    transform: translateX(50px);
+		}
+		
+		/* Анимация для центрального блока с деньгами */
+		.lost_cash.animate-on-scroll.animated {
+		    opacity: 1;
+		    visibility: visible;
+		    transform: translateY(0);
+		}
+		
+		.lost_cash.animate-on-scroll {
+		    transform: translateY(30px);
+		}
+		
+		/* Анимация для нижнего текста - появляется снизу */
+		.text_benefits_paid.animate-on-scroll.animated {
+		    opacity: 1;
+		    visibility: visible;
+		    transform: translateY(0);
+		}
+		
+		.text_benefits_paid.animate-on-scroll {
+		    transform: translateY(30px);
+		}
+		
+		/* Анимация для градиентного эллипса */
+		#block2::after {
+		    content: '';
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+		    width: 80%;
+		    height: 60%;
+		    background: radial-gradient(
+		        ellipse at center,
+		        rgba(255, 105, 180, 0.4) 0%,
+		        rgba(255, 20, 147, 0.3) 30%,
+		        rgba(219, 112, 147, 0.2) 60%,
+		        transparent 80%
+		    );
+		    border-radius: 50%;
+		    filter: blur(40px);
+		    z-index: 1;
+		    mix-blend-mode: overlay;
+		    opacity: 0;
+		    animation: glowPulse 4s ease-in-out infinite;
+		}
+		
+		/* Пульсирующая анимация для градиента */
+		@keyframes glowPulse {
+		    0%, 100% {
+		        opacity: 0.3;
+		        transform: translate(-50%, -50%) scale(1);
+		    }
+		    50% {
+		        opacity: 0.5;
+		        transform: translate(-50%, -50%) scale(1.05);
+		    }
+		}
+		
+		/* Анимация появления градиента при скролле */
+		#block2.animate-gradient::after {
+		    opacity: 0.3;
+		    transition: opacity 1.5s ease-out;
+		}
+		
+		/* Стили для счетчика */
+		.counter {
+		    display: inline-block;
+		    min-width: 120px;
+		    text-align: right;
+		}
+		
+		/* Анимация пересчета чисел */
+		@keyframes countUp {
+		    from {
+		        opacity: 0;
+		        transform: translateY(10px);
+		    }
+		    to {
+		        opacity: 1;
+		        transform: translateY(0);
+		    }
+		}
+		
+		.t1 .counter {
+		    animation: countUp 0.5s ease-out forwards;
+		}
+
 		@media (max-width: 768px) {
 		  #block1 {
 		    min-height: auto;
