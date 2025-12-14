@@ -431,8 +431,8 @@ a:hover {
 		}
 
 		.method-option.active {
-			    background: #fff;
-			    color: #000;
+			    background: #fff !important;
+			    color: #000 !important;
 		}
 
         .checkbox-group {
