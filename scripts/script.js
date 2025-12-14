@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeModal = document.getElementById('closeModal');
     const submitBtn = document.getElementById('submitBtn');
     const agreeCheckbox = document.getElementById('agree');
+    const methodButtons = document.querySelectorAll('.method-option');
     
     // Открытие модального окна при клике на видео
     if (videoBtn) {
@@ -49,6 +50,29 @@ document.addEventListener('DOMContentLoaded', function() {
             replaceVideoWithFallback();
         });
     }
+
+    if (methodButtons.length > 0) {
+        methodButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Удаляем класс active у всех кнопок и сбрасываем стили
+                methodButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.style.backgroundColor = 'rgb(255 255 255 / 5%)';
+                    btn.style.color = '#fff';
+                });
+                
+                // Добавляем класс active и меняем стили только для выбранной кнопки
+                this.classList.add('active');
+                this.style.backgroundColor = '#fff';
+                this.style.color = '#000';
+                
+                // Сохраняем выбранный способ связи в скрытом поле
+                const methodType = this.id === 'wh-button' ? 'whatsapp' : 
+                                 this.id === 'tg-button' ? 'telegram' : 'phone';
+                updateSelectedMethod(methodType);
+            });
+        });
+    }
     
     // Функция открытия модального окна
     function openModal() {
@@ -91,6 +115,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const name = document.getElementById('name');
         const phone = document.getElementById('phone');
         const communicationMethods = document.querySelectorAll('input[name="communication"]:checked');
+
+        // Проверяем, выбран ли способ связи (активная кнопка)
+        const selectedMethodButton = document.querySelector('.method-option.active');
         
         // Валидация
         if (!name || !name.value.trim()) {
@@ -103,8 +130,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        if (!communicationMethods || communicationMethods.length === 0) {
-            alert('Пожалуйста, выберите хотя бы один способ связи');
+        if (!selectedMethodButton) {
+            alert('Пожалуйста, выберите способ связи');
             return;
         }
         
@@ -112,6 +139,10 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Необходимо согласие на обработку персональных данных');
             return;
         }
+
+        // Получаем выбранный способ связи
+        const selectedMethod = selectedMethodButton.id === 'wh-button' ? 'whatsapp' : 
+                              selectedMethodButton.id === 'tg-button' ? 'telegram' : 'phone';
         
         // Сбор данных формы
         const formData = {
@@ -137,14 +168,51 @@ document.addEventListener('DOMContentLoaded', function() {
     function resetForm() {
         const name = document.getElementById('name');
         const phone = document.getElementById('phone');
-        const communicationCheckboxes = document.querySelectorAll('input[name="communication"]');
         
         if (name) name.value = '';
         if (phone) phone.value = '';
-        if (communicationCheckboxes) {
-            communicationCheckboxes.forEach(cb => cb.checked = false);
-        }
         if (agreeCheckbox) agreeCheckbox.checked = false;
+        
+        // Сбрасываем выбор способов связи
+        resetMethodSelection();
+    }
+
+    // Функция сброса выбора способов связи
+    function resetMethodSelection() {
+        if (methodButtons.length > 0) {
+            methodButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.backgroundColor = 'rgb(255 255 255 / 5%)';
+                btn.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                btn.style.color = '#fff';
+            });
+            
+            // Удаляем скрытое поле с выбранным методом
+            const hiddenInput = document.getElementById('selected-method');
+            if (hiddenInput) {
+                hiddenInput.remove();
+            }
+        }
+    }
+    
+    // Функция обновления выбранного способа связи
+    function updateSelectedMethod(methodType) {
+        // Удаляем старое скрытое поле, если оно существует
+        const oldHiddenInput = document.getElementById('selected-method');
+        if (oldHiddenInput) {
+            oldHiddenInput.remove();
+        }
+        
+        // Создаем новое скрытое поле с выбранным значением
+        const methodsList = document.querySelector('.methods-list');
+        if (methodsList) {
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.id = 'selected-method';
+            hiddenInput.name = 'preferred-method';
+            hiddenInput.value = methodType;
+            methodsList.appendChild(hiddenInput);
+        }
     }
     
     // Функция замены видео на заглушку при ошибке загрузки
