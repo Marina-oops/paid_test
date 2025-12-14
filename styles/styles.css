@@ -837,14 +837,6 @@ a:hover {
 		    }
 		}
 
-		/* Для отладки - временно сделайте эллипс видимым сразу */
-		
-		#block2::after {
-		    opacity: 0.5 !important;
-		    animation: glowPulse 4s ease-in-out infinite !important;
-		}
-		
-
 		/* Стили для счетчика */
 		.counter {
 		    display: inline-block;
