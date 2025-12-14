@@ -672,7 +672,7 @@ a:hover {
 		    border-radius: 50%;
 		    filter: blur(40px); /* Размытие для плавного градиента */
 		    z-index: 1;
-		    mix-blend-mode: overlay; /* Режим наложения для красивого эффекта */
+		    mix-blend-mode: lighten; /* Режим наложения для красивого эффекта */
 			opacity: 0; /* Начальное состояние - невидим */
     		transition: opacity 1.5s ease-out 0.5s;
 		}
