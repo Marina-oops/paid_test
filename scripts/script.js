@@ -315,6 +315,20 @@ document.addEventListener('DOMContentLoaded', function() {
         
         updateCounter();
     }
+
+    // Обновленная функция для анимации стрелок
+    function animateArrows() {
+        const lostCash = document.querySelector('.lost_cash');
+        if (!lostCash) return;
+        
+        // Добавляем класс для основной анимации
+        lostCash.classList.add('animated');
+        
+        // Через 1 секунду добавляем пульсацию
+        setTimeout(() => {
+            lostCash.classList.add('arrows-pulsing');
+        }, 1000);
+    }
     
     // Функция для проверки видимости элемента
     function isElementInViewport(el) {
@@ -358,16 +372,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     const lostCash = block2.querySelector('.lost_cash');
                     if (lostCash) {
                         lostCash.classList.add('animated');
+
+                         // Запускаем анимацию стрелок
+                        animateArrows();
                         
                         // Запускаем счетчик
                         const counterElement = lostCash.querySelector('.counter');
                         if (counterElement) {
                             setTimeout(() => {
                                 animateCounter(counterElement, 1500000000, 2000);
-                            }, 300);
+                            }, 500);
                         }
                     }
-                }, 200);
+                }, 400);
                 
                 // 4. Показываем боковые блоки через 0.4 секунды
                 setTimeout(() => {
@@ -375,7 +392,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const rightBlock = block2.querySelector('.block2_inf_right');
                     if (leftBlock) leftBlock.classList.add('animated');
                     if (rightBlock) rightBlock.classList.add('animated');
-                }, 400);
+                }, 600);
                 
                 // 5. Показываем text_benefits_paid через 0.8 секунды
                 setTimeout(() => {
