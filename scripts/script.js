@@ -386,6 +386,27 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 100);
         }
     }
+
+     setTimeout(function() {
+        const block2 = document.getElementById('block2');
+        if (block2) {
+            console.log('Принудительно показываем эллипс');
+            block2.classList.add('animate-gradient');
+            block2.classList.add('ellipse-visible');
+            
+            // Добавьте этот код для визуальной проверки
+            const debugStyle = document.createElement('style');
+            debugStyle.textContent = `
+                #block2::after {
+                    border: 2px solid red !important;
+                }
+                #block2 {
+                    background: #000 !important;
+                }
+            `;
+            document.head.appendChild(debugStyle);
+        }
+    }, 1000);
     
     // Запускаем при загрузке
     setTimeout(handleScrollAnimations, 300);
