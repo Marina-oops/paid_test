@@ -728,21 +728,23 @@ a:hover {
 		    max-width: 472px;
 		}
 		.text_lost_cash {
-			opacity: 0;
 			display: flex;
 		    flex-direction: column;
 			gap: 20px;
 			max-width: 452px;
     		width: 100%;
-			transform: translateY(20px);
-    		transition: opacity 0.8s ease, transform 0.8s ease;
 		}
 
-		.lost_cash.text-visible .text_lost_cash {
+		.text_lost_cash.hidden {
+		    opacity: 0;
+		    transform: translateY(20px);
+		}
+		
+		.text_lost_cash.visible {
 		    opacity: 1;
 		    transform: translateY(0);
+		    transition: opacity 0.8s ease, transform 0.8s ease;
 		}
-
 		.t1 {
 			font-weight: 700;
 			font-size: 60px;
