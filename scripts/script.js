@@ -340,9 +340,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function animateArrows() {
         const lostCash = document.querySelector('.lost_cash');
         if (!lostCash) return;
-        
-        // Добавляем класс для основной анимации
-        lostCash.classList.add('animated');
 
         lostCash.classList.remove('arrows-visible', 'arrows-pulsing');
         
@@ -399,24 +396,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 3. Показываем lost_cash через 0.2 секунды
                 setTimeout(() => {
                     const lostCash = block2.querySelector('.lost_cash');
-                    if (lostCash) {
-                        lostCash.classList.add('animated');
+                    const textLostCash = block2.querySelector('.text_lost_cash');
+                    if (lostCash && textLostCash) {
+                        textLostCash.style.opacity = '1';
+                        textLostCash.style.transform = 'translateY(0)';
                         
                         // Запускаем счетчик
                         const counterElement = lostCash.querySelector('.counter');
                         if (counterElement) {
                             setTimeout(() => {
+                                counterElement.textContent = '0';
                                 counterAnimation = animateCounter(
                                     counterElement, 
                                     1500000000, 
-                                    1500, // Длительность 1.5 секунды
+                                    1000, // Длительность 1.5 секунды
                                     function() {
                                         console.log('Счетчик завершен! Запускаем стрелки...');
                                         // После завершения счетчика запускаем стрелки
                                         animateArrows();
                                     }
                                 );
-                            }, 500);
+                            }, 300);
                         }
                     }
                 }, 400);
