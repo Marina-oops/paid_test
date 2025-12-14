@@ -297,12 +297,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Функция для анимации счетчика
-    function animateCounter(element, finalValue, duration = 1000, onComplete) {
+    function animateCounter(element, finalValue, duration = 1000) {
+        return new Promise((resolve) => {
         let startValue = 0;
         const increment = finalValue / (duration / 16); // 60fps
         let currentValue = startValue;
         let animationId = null;
-        let isComplete = false;
         
         function updateCounter() {
             currentValue += increment;
@@ -312,9 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (animationId) {
                     cancelAnimationFrame(animationId);
                 }
-                if (onComplete && typeof onComplete === 'function') {
-                    onComplete();
-                }
+                resolve();
                 return;
             }
             
@@ -322,18 +320,8 @@ document.addEventListener('DOMContentLoaded', function() {
             animationId = requestAnimationFrame(updateCounter);
      }
 
-    animationId = requestAnimationFrame(updateCounter);
-
-        return {
-            stop: function() {
-                if (animationId) {
-                    cancelAnimationFrame(animationId);
-                }
-            },
-            isComplete: function() {
-                return isComplete;
-            }
-        };
+            animationId = requestAnimationFrame(updateCounter);
+        });
     }
 
     // Обновленная функция для анимации стрелок
@@ -341,7 +329,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const lostCash = document.querySelector('.lost_cash');
         if (!lostCash) return;
 
-        lostCash.classList.remove('arrows-visible', 'arrows-pulsing');
+        lostCash.classList.add('show-arrows');
         
         setTimeout(() => {
             lostCash.classList.add('arrows-visible');
@@ -366,7 +354,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Флаг для предотвращения повторного запуска анимаций
     let animationsStarted = false;
-    let counterAnimation = null;
     
     // Функция для запуска анимации при скролле
    function handleScrollAnimations() {
@@ -398,24 +385,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     const lostCash = block2.querySelector('.lost_cash');
                     const textLostCash = block2.querySelector('.text_lost_cash');
                     if (lostCash && textLostCash) {
-                        textLostCash.style.opacity = '1';
-                        textLostCash.style.transform = 'translateY(0)';
+                        textLostCash.classList.remove('hidden');
+                        textLostCash.classList.add('visible');
                         
                         // Запускаем счетчик
                         const counterElement = lostCash.querySelector('.counter');
                         if (counterElement) {
-                            setTimeout(() => {
+                           setTimeout(async () => {
+                                // Сбрасываем счетчик на 0
                                 counterElement.textContent = '0';
-                                counterAnimation = animateCounter(
-                                    counterElement, 
-                                    1500000000, 
-                                    1000, // Длительность 1.5 секунды
-                                    function() {
-                                        console.log('Счетчик завершен! Запускаем стрелки...');
-                                        // После завершения счетчика запускаем стрелки
-                                        animateArrows();
-                                    }
-                                );
+                                
+                                try {
+                                    // Ждем завершения счетчика
+                                    await animateCounter(counterElement, 1500000000, 1500);
+                                    animateArrows();
+                                } catch (error) {
+                                    console.error('Ошибка в анимации счетчика:', error);
+                                }
                             }, 300);
                         }
                     }
