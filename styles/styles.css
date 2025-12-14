@@ -726,6 +726,8 @@ a:hover {
 			display: flex;
 		    flex-direction: column;
 			gap: 20px;
+			max-width: 452px;
+    		width: 100%;
 		}
 		.t1 {
 			font-weight: 700;
@@ -965,7 +967,7 @@ a:hover {
 		}
 		
 		.lost_cash.animated #group_arrows_right .group_arrow1 {
-		    transform: translateX(-5px) translateY(5);
+		    transform: translateX(-5px) translateY(5px);
 		}
 		
 		.lost_cash.animated #group_arrows_right .group_arrow2 {
@@ -978,7 +980,7 @@ a:hover {
 		        transform: translateX(15px) translateY(0px);
 		    }
 		    50% {
-		        transform: translateX(17px) translateY(-2px);
+		        transform: translateX(25px) translateY(0px);
 		        filter: drop-shadow(0 0 8px rgba(79, 172, 254, 0.8));
 		    }
 		}
@@ -988,7 +990,7 @@ a:hover {
 		        transform: translateX(-15px) translateY(0px);
 		    }
 		    50% {
-		        transform: translateX(-17px) translateY(-2px);
+		        transform: translateX(-25px) translateY(0px);
 		        filter: drop-shadow(0 0 8px rgba(79, 172, 254, 0.8));
 		    }
 		}
