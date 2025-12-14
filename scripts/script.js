@@ -320,46 +320,75 @@ document.addEventListener('DOMContentLoaded', function() {
     function isElementInViewport(el) {
         const rect = el.getBoundingClientRect();
         return (
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+            rect.bottom >= 0
         );
     }
+
+    // Флаг для предотвращения повторного запуска анимаций
+    let animationsStarted = false;
     
     // Функция для запуска анимации при скролле
-    function handleScrollAnimations() {
+   function handleScrollAnimations() {
         const block2 = document.getElementById('block2');
-        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        
+        if (!block2 || animationsStarted) return;
         
         // Проверяем видимость блока
         if (isElementInViewport(block2)) {
-            // Добавляем класс для градиента
-            block2.classList.add('animate-gradient');
+            animationsStarted = true;
             
-            // Анимируем элементы с задержкой
-            animatedElements.forEach(element => {
-                if (isElementInViewport(element) && !element.classList.contains('animated')) {
-                    const delay = element.getAttribute('data-delay') || 0;
+            // 1. Показываем заголовок
+            setTimeout(() => {
+                const title = block2.querySelector('.block2_text');
+                if (title) title.classList.add('animated');
+                
+                // 2. Показываем эллипс через 0.5 секунды
+                setTimeout(() => {
+                    block2.classList.add('animate-gradient');
                     
+                    // 3. Через еще 0.3 секунды запускаем пульсацию
                     setTimeout(() => {
-                        element.classList.add('animated');
+                        block2.classList.add('ellipse-visible');
+                    }, 300);
+                }, 500);
+                
+                // 3. Показываем lost_cash через 0.2 секунды
+                setTimeout(() => {
+                    const lostCash = block2.querySelector('.lost_cash');
+                    if (lostCash) {
+                        lostCash.classList.add('animated');
                         
-                        // Если это элемент с деньгами, запускаем счетчик
-                        if (element.classList.contains('lost_cash')) {
-                            const counterElement = element.querySelector('.counter');
-                            if (counterElement) {
-                                // Запускаем счетчик с небольшой задержкой
-                                setTimeout(() => {
-                                    animateCounter(counterElement, 1500000000, 2500);
-                                }, 500);
-                            }
+                        // Запускаем счетчик
+                        const counterElement = lostCash.querySelector('.counter');
+                        if (counterElement) {
+                            setTimeout(() => {
+                                animateCounter(counterElement, 1500000000, 2000);
+                            }, 300);
                         }
-                    }, parseInt(delay));
-                }
-            });
+                    }
+                }, 200);
+                
+                // 4. Показываем боковые блоки через 0.4 секунды
+                setTimeout(() => {
+                    const leftBlock = block2.querySelector('.block2_inf_left');
+                    const rightBlock = block2.querySelector('.block2_inf_right');
+                    if (leftBlock) leftBlock.classList.add('animated');
+                    if (rightBlock) rightBlock.classList.add('animated');
+                }, 400);
+                
+                // 5. Показываем text_benefits_paid через 0.8 секунды
+                setTimeout(() => {
+                    const benefits = block2.querySelector('.text_benefits_paid');
+                    if (benefits) benefits.classList.add('animated');
+                }, 800);
+                
+            }, 100);
         }
     }
     
     // Запускаем при загрузке
-    handleScrollAnimations();
+    setTimeout(handleScrollAnimations, 300);
     
     // И при скролле
     window.addEventListener('scroll', handleScrollAnimations);
