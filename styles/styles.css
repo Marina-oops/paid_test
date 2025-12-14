@@ -719,12 +719,10 @@ a:hover {
 		.lost_cash {
 			display: flex;
 		    flex-direction: row;
-		    gap: 52px;
+		    gap: 36px;
 		}
 		.text_lost_cash_container {
-			display: flex;
-		    width: 100%;
-		    max-width: 452px;
+			width: 492px;
 		}
 		.text_lost_cash {
 			display: flex;
