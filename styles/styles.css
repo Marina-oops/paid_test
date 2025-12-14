@@ -740,6 +740,16 @@ a:hover {
 		    transform: translateY(0);
 		    transition: opacity 0.8s ease, transform 0.8s ease;
 		}
+
+		.lost_cash.show-arrows .group_arrow,
+		.lost_cash.show-arrows .group_arrow1,
+		.lost_cash.show-arrows .group_arrow2 {
+		    opacity: 1 !important;
+		    visibility: visible !important;
+		}
+
+	
+
 		.t1 {
 			font-weight: 700;
 			font-size: 60px;
