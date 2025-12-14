@@ -657,17 +657,17 @@ a:hover {
 		#block2::after {
 		    content: '';
 		    position: absolute;
-		    top: 50%;
+		    top: 30%;
 		    left: 50%;
 		    transform: translate(-50%, -50%);
-		    width: 80%; /* Ширина эллипса */
-		    height: 60%; /* Высота эллипса */
+		    width: 25%; /* Ширина эллипса */
+		    height: 40%; /* Высота эллипса */
 		    background: radial-gradient(
 		        ellipse at center,
-		        rgba(255, 105, 180, 0.4) 0%,      /* Розовый прозрачный */
-		        rgba(255, 20, 147, 0.3) 30%,      /* Темно-розовый */
-		        rgba(219, 112, 147, 0.2) 60%,     /* Бледно-лиловый */
-		        transparent 80%                    /* Плавное исчезновение */
+		        rgba(255, 39, 39, 1) 12%,     
+		        rgba(157, 18, 111, 1) 61%,     
+		        rgba(0, 13, 162, 0) 100%,     
+		        transparent 80%                  
 		    );
 		    border-radius: 50%;
 		    filter: blur(40px); /* Размытие для плавного градиента */
