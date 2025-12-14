@@ -836,7 +836,7 @@ a:hover {
 		/* Применяем пульсацию после появления */
 		#block2.animate-gradient.ellipse-visible::after {
 		    animation: 
-				glowPulse 4s ease-in-out infinite,
+				glowPulse 4s ease-in-out infinite;
 		}
 
 		.block2_text,
