@@ -85,18 +85,35 @@ img, video {
   height: auto;
 }
 
+.blocks {
+  position: relative;
+  width: 100%;
+}
+
 #block1 {
   position: relative;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 #block1 .video_background {
-  position: fixed; /* или absolute */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
   z-index: -1; /* отправляем на задний план */
+}
+
+/* Видео внутри блока */
+#block1 .video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Заполнение всего пространства */
+  object-position: center;
 }
 
 .video-darken {
@@ -328,6 +345,17 @@ a:hover {
 	gap: 11px;
 }
 
+/* Все остальные элементы внутри block1 должны быть выше видео */
+		#block1 .desktop-header,
+		#block1 .container,
+		#block1 .containers_background,
+		#block1 .container_right,
+		#block1 .container_center,
+		#block1 .container_left {
+		  position: relative;
+		  z-index: 2; /* Выше видеофона */
+		}
+
  /* Модальное окно */
         .modal-overlay {
             position: fixed;
@@ -341,7 +369,7 @@ a:hover {
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 1000;
+            z-index: 9999;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease, backdrop-filter 0.3s ease;
@@ -597,6 +625,10 @@ a:hover {
 			}
 		}
 
+		#block2 .video_background {
+		  display: none; /* Скрываем видеофон в block2 */
+		}
+
 		#block2::before {
 		    content: '';
 		    position: absolute;
@@ -716,4 +748,13 @@ a:hover {
 		    z-index: 2; /* Выше фона и градиента */
 		}
 
-
+		@media (max-width: 768px) {
+		  #block1 {
+		    min-height: auto;
+		    padding-bottom: 40px;
+		  }
+		  
+		  #block1 .video_background {
+		    height: 100vh; /* На мобильных тоже на всю высоту */
+		  }
+		}
