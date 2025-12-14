@@ -619,6 +619,7 @@ a:hover {
 			position: relative;
 			z-index: 1;
 			background: #000;
+			min-height: 100vh;
 			p {
 				line-height: 140%;
 				opacity: 0.6;
@@ -626,7 +627,7 @@ a:hover {
 		}
 
 		#block2 .video_background {
-		  display: none; /* Скрываем видеофон в block2 */
+		  display: none;
 		}
 
 		#block2::before {
@@ -672,6 +673,8 @@ a:hover {
 		    filter: blur(40px); /* Размытие для плавного градиента */
 		    z-index: 1;
 		    mix-blend-mode: overlay; /* Режим наложения для красивого эффекта */
+			opacity: 0; /* Начальное состояние - невидим */
+    		transition: opacity 1.5s ease-out 0.5s;
 		}
 
 		.block2_text {
@@ -734,18 +737,6 @@ a:hover {
 			display: flex;
 		    flex-direction: column;
 			gap: 12px;
-		}
-
-		.block2_text,
-		.block2_inf,
-		.block2_inf_left,
-		.block2_inf_center,
-		.block2_inf_right,
-		.text_pleasure_calls,
-		.lost_cash,
-		.text_benefits_paid {
-		    position: relative;
-		    z-index: 2; /* Выше фона и градиента */
 		}
 
 		/* Исходное состояние для анимируемых элементов */
@@ -813,51 +804,47 @@ a:hover {
 		    transform: translateY(0);
 		}
 
-		/* Анимация для градиентного эллипса */
-		#block2::after {
-		    content: '';
-		    position: absolute;
-		    top: 50%;
-		    left: 50%;
-		    transform: translate(-50%, -50%);
-		    width: 80%;
-		    height: 60%;
-		    background: radial-gradient(
-		        ellipse at center,
-		        rgba(255, 105, 180, 0.4) 0%,
-		        rgba(255, 20, 147, 0.3) 30%,
-		        rgba(219, 112, 147, 0.2) 60%,
-		        transparent 80%
-		    );
-		    border-radius: 50%;
-		    filter: blur(40px);
-		    z-index: 1;
-		    mix-blend-mode: overlay;
-		    opacity: 0;
-		    transition: opacity 1.5s ease-out 0.5s;
+		#block2.animate-gradient::after {
+		    opacity: 0.5;
 		}
 
-		#block2.animate-gradient::after {
-		    opacity: 0.3;
-		}
-		
-		/* Пульсирующая анимация для градиента */
-		@keyframes glowPulse {
-		    0%, 100% {
-		        opacity: 0.3;
-		        transform: translate(-50%, -50%) scale(1);
-		    }
-		    50% {
-		        opacity: 0.5;
-		        transform: translate(-50%, -50%) scale(1.05);
-		    }
-		}
-		
 		/* Применяем пульсацию после появления */
 		#block2.animate-gradient.ellipse-visible::after {
 		    animation: glowPulse 4s ease-in-out infinite;
 		}
+
+		.block2_text,
+		.block2_inf,
+		.block2_inf_left,
+		.block2_inf_center,
+		.block2_inf_right,
+		.text_pleasure_calls,
+		.lost_cash,
+		.text_benefits_paid {
+		    position: relative;
+		    z-index: 3; /* Выше фона и градиента */
+		}
+
+		/* Пульсирующая анимация для градиента */
+		@keyframes glowPulse {
+		    0%, 100% {
+		        opacity: 0.5;
+		        transform: translate(-50%, -50%) scale(1);
+		    }
+		    50% {
+		        opacity: 0.8;
+		        transform: translate(-50%, -50%) scale(1.05);
+		    }
+		}
+
+		/* Для отладки - временно сделайте эллипс видимым сразу */
 		
+		#block2::after {
+		    opacity: 0.5 !important;
+		    animation: glowPulse 4s ease-in-out infinite !important;
+		}
+		
+
 		/* Стили для счетчика */
 		.counter {
 		    display: inline-block;
