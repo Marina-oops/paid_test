@@ -722,6 +722,9 @@ a:hover {
 		    flex-direction: row;
 		    gap: 36px;
 		}
+		.text_lost_cash_container {
+			padding: 0 10px;
+		}
 		.text_lost_cash {
 			display: flex;
 		    flex-direction: column;
@@ -999,8 +1002,24 @@ a:hover {
 		.lost_cash.arrows-pulsing #group_arrows_left .group_arrow {
 		    animation: arrowPulse 2s ease-in-out infinite;
 		}
+
+		.lost_cash.arrows-pulsing #group_arrows_left .group_arrow1 {
+		    animation: arrowPulse 2s ease-in-out infinite;
+		}
 		
+		.lost_cash.arrows-pulsing #group_arrows_left .group_arrow2 {
+		    animation: arrowPulse 2s ease-in-out infinite;
+		}
+
 		.lost_cash.arrows-pulsing #group_arrows_right .group_arrow {
+		    animation: arrowPulseRight 2s ease-in-out infinite;
+		}
+
+		.lost_cash.arrows-pulsing #group_arrows_right .group_arrow1 {
+		    animation: arrowPulseRight 2s ease-in-out infinite;
+		}
+
+		.lost_cash.arrows-pulsing #group_arrows_right .group_arrow2 {
 		    animation: arrowPulseRight 2s ease-in-out infinite;
 		}
 
