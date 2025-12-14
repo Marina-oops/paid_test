@@ -400,7 +400,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Запускаем анимацию стрелок
                 setTimeout(() => {
                         animateArrows();
-                }, 1000);
+                }, 20000);
                 
             }, 100);
         }
