@@ -412,6 +412,7 @@ a:hover {
         .method-option {
                 display: flex;
 			    align-items: center;
+				justify-content: center;
 			    gap: 6px;
 			    padding: 12px 20px;
 			    height: 40px;
@@ -422,7 +423,17 @@ a:hover {
 			    color: #fff;
 			    font-size: 12px;
 				cursor: pointer;
+				transition: all 0.3s ease;
         }
+
+		.method-option:hover {
+		   top: 4px;
+		}
+
+		.method-option.active {
+			    background: #fff;
+			    color: #000;
+		}
 
         .checkbox-group {
             display: flex;
