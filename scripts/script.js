@@ -297,23 +297,43 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Функция для анимации счетчика
-    function animateCounter(element, finalValue, duration = 2000) {
+    function animateCounter(element, finalValue, duration = 1000, onComplete) {
         let startValue = 0;
         const increment = finalValue / (duration / 16); // 60fps
         let currentValue = startValue;
+        let animationId = null;
+        let isComplete = false;
         
         function updateCounter() {
             currentValue += increment;
             if (currentValue >= finalValue) {
                 element.textContent = formatNumber(finalValue);
+                isComplete = true;
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                }
+                if (onComplete && typeof onComplete === 'function') {
+                    onComplete();
+                }
                 return;
             }
             
             element.textContent = formatNumber(Math.floor(currentValue));
-            requestAnimationFrame(updateCounter);
-        }
-        
-        updateCounter();
+            animationId = requestAnimationFrame(updateCounter);
+     }
+
+    animationId = requestAnimationFrame(updateCounter);
+
+        return {
+            stop: function() {
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                }
+            },
+            isComplete: function() {
+                return isComplete;
+            }
+        };
     }
 
     // Обновленная функция для анимации стрелок
@@ -323,11 +343,19 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Добавляем класс для основной анимации
         lostCash.classList.add('animated');
+
+        lostCash.classList.remove('arrows-visible', 'arrows-pulsing');
         
-        // Через 1 секунду добавляем пульсацию
         setTimeout(() => {
-            lostCash.classList.add('arrows-pulsing');
-        }, 1000);
+            lostCash.classList.add('arrows-visible');
+            console.log('Стрелки стали видимыми');
+            
+            // Еще через задержку добавляем пульсацию
+            setTimeout(() => {
+                lostCash.classList.add('arrows-pulsing');
+                console.log('Запущена пульсация стрелок');
+            }, 300);
+        }, 100);
     }
     
     // Функция для проверки видимости элемента
@@ -341,6 +369,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Флаг для предотвращения повторного запуска анимаций
     let animationsStarted = false;
+    let counterAnimation = null;
     
     // Функция для запуска анимации при скролле
    function handleScrollAnimations() {
@@ -377,7 +406,16 @@ document.addEventListener('DOMContentLoaded', function() {
                         const counterElement = lostCash.querySelector('.counter');
                         if (counterElement) {
                             setTimeout(() => {
-                                animateCounter(counterElement, 1500000000, 2000);
+                                counterAnimation = animateCounter(
+                                    counterElement, 
+                                    1500000000, 
+                                    1500, // Длительность 1.5 секунды
+                                    function() {
+                                        console.log('Счетчик завершен! Запускаем стрелки...');
+                                        // После завершения счетчика запускаем стрелки
+                                        animateArrows();
+                                    }
+                                );
                             }, 500);
                         }
                     }
@@ -396,11 +434,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     const benefits = block2.querySelector('.text_benefits_paid');
                     if (benefits) benefits.classList.add('animated');
                 }, 800);
-
-                // Запускаем анимацию стрелок
-                setTimeout(() => {
-                        animateArrows();
-                }, 20000);
                 
             }, 100);
         }
