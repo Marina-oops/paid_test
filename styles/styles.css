@@ -687,9 +687,8 @@ a:hover {
 		.block2_inf {
 			display: flex;
 		    flex-direction: row;
-		    gap: 28px;
 			width: 100%;
-		    max-width: 1164px;
+		    max-width: 1204px;
 		    justify-content: space-between;
 		}
 
@@ -720,7 +719,7 @@ a:hover {
 		.lost_cash {
 			display: flex;
 		    flex-direction: row;
-		    gap: 36px;
+		    gap: 52px;
 		}
 		.text_lost_cash_container {
 			padding: 0 10px;
@@ -922,12 +921,12 @@ a:hover {
 		}
 		
 		#group_arrows_left .group_arrow1 {
-		    transform: translateX(100px) translateY(5px);
+		    transform: translateX(100px) translateY(0px);
 		    transition-delay: 0.1s;
 		}
 		
 		#group_arrows_left .group_arrow2 {
-		    transform: translateX(120px) translateY(10px);
+		    transform: translateX(120px) translateY(0px);
 		    transition-delay: 0.2s;
 		}
 		
@@ -938,12 +937,12 @@ a:hover {
 		}
 		
 		#group_arrows_right .group_arrow1 {
-		    transform: translateX(-100px) translateY(5px);
+		    transform: translateX(-100px) translateY(0px);
 		    transition-delay: 0.1s;
 		}
 		
 		#group_arrows_right .group_arrow2 {
-		    transform: translateX(-120px) translateY(10px);
+		    transform: translateX(-120px) translateY(0px);
 		    transition-delay: 0.2s;
 		}
 		
@@ -960,11 +959,11 @@ a:hover {
 		}
 		
 		.lost_cash.animated #group_arrows_left .group_arrow1 {
-		    transform: translateX(10px) translateY(5px);
+		    transform: translateX(10px) translateY(0px);
 		}
 		
 		.lost_cash.animated #group_arrows_left .group_arrow2 {
-		    transform: translateX(5px) translateY(10px);
+		    transform: translateX(5px) translateY(0px);
 		}
 		
 		/* Правые стрелки - конечные позиции */
@@ -973,11 +972,11 @@ a:hover {
 		}
 		
 		.lost_cash.animated #group_arrows_right .group_arrow1 {
-		    transform: translateX(-10px) translateY(5px);
+		    transform: translateX(-10px) translateY(0px);
 		}
 		
 		.lost_cash.animated #group_arrows_right .group_arrow2 {
-		    transform: translateX(-5px) translateY(10px);
+		    transform: translateX(-5px) translateY(0px);
 		}
 		
 		/* Анимация пульсации после сближения */
@@ -986,7 +985,7 @@ a:hover {
 		        transform: translateX(15px) translateY(0px);
 		    }
 		    50% {
-		        transform: translateX(25px) translateY(0px);
+		        transform: translateX(20px) translateY(0px);
 		        filter: drop-shadow(0 0 8px rgba(79, 172, 254, 0.8));
 		    }
 		}
@@ -996,7 +995,7 @@ a:hover {
 		        transform: translateX(-15px) translateY(0px);
 		    }
 		    50% {
-		        transform: translateX(-25px) translateY(0px);
+		        transform: translateX(-20px) translateY(0px);
 		        filter: drop-shadow(0 0 8px rgba(79, 172, 254, 0.8));
 		    }
 		}
