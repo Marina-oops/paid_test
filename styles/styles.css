@@ -322,15 +322,21 @@ a:hover {
         }
 
         .modal {
-            background: #fff;
-            border-radius: 16px;
-            width: 90%;
-            max-width: 500px;
-            color: #333;
+			display: flex;
+			flex-direction: column;
+			gap: 40px;
+			width: fit-content;
+            color: #fff;
             overflow: hidden;
             transform: translateY(30px);
             transition: transform 0.3s;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(3px);
+		    padding: 50px 42px;
+		    border-radius: 28px;
+		    box-sizing: border-box;
+		    border: 1px solid #67677b;
+		    border-right: 1px solid #fff;
+		    box-shadow: inset 0 0 60px rgb(173 216 230 / 10%);
         }
 
         .modal-overlay.active .modal {
@@ -338,44 +344,38 @@ a:hover {
         }
 
         .modal-header {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             color: white;
-            padding: 25px 30px;
             text-align: center;
-        }
-
-        .modal-header h2 {
-            font-size: 24px;
-            margin-bottom: 8px;
+			display: flex;
+		    flex-direction: column;
+		    gap: 24px;
         }
 
         .modal-header p {
-            opacity: 0.9;
-            font-size: 16px;
+            opacity: 0.6;
+            font-size: 20px;
+			line-height: 150%;
+		    letter-spacing: 0.02em;
+			text-align: center;
         }
 
         .modal-content {
             padding: 30px;
         }
 
-        .input-group {
-            margin-bottom: 20px;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #555;
-            font-weight: 500;
+        .input-groups {
+            display: flex;
+			flex-direction: column;
+			gap: 24px;
         }
 
         .input-group input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border 0.3s;
+                width: 100%;
+			    height: 64px;
+			    padding: 12px 24px;
+			    border-radius: 16px;
+			    font-size: 16px;
+				letter-spacing: 0.01em;
         }
 
         .input-group input:focus {
@@ -385,7 +385,10 @@ a:hover {
         }
 
         .communication-methods {
-            margin-bottom: 25px;
+            display: flex;
+		    flex-direction: column;
+		    align-items: center;
+		    gap: 20px;
         }
 
         .communication-methods h4 {
@@ -395,26 +398,28 @@ a:hover {
 
         .methods-list {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
         .method-option {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .method-option input {
-            width: 18px;
-            height: 18px;
+                display: flex;
+			    align-items: center;
+			    gap: 6px;
+			    padding: 12px 20px;
+			    height: 40px;
+			    border-radius: 8px;
+			    backdrop-filter: blur(3px);
+			    color: #fff;
+			    font-size: 12px;
+				cursor: pointer;
         }
 
         .checkbox-group {
             display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 25px;
+		    align-items: center;
+		    gap: 12px;
+		    justify-content: center;
         }
 
         .checkbox-group input {
@@ -425,9 +430,10 @@ a:hover {
         }
 
         .checkbox-group label {
-            color: #555;
-            font-size: 14px;
-            line-height: 1.4;
+            color: #fff;
+		    font-size: 12px;
+		    line-height: 1.4;
+		    opacity: 0.6;
         }
 
         .checkbox-group a {
@@ -440,7 +446,8 @@ a:hover {
         }
 
         .modal-footer {
-            padding: 0 30px 30px;
+            display: flex;
+    		justify-content: center;
         }
 
         .submit-btn {
@@ -465,12 +472,11 @@ a:hover {
             position: absolute;
             top: 15px;
             right: 15px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0);
             border: none;
             color: white;
             width: 36px;
             height: 36px;
-            border-radius: 50%;
             font-size: 20px;
             cursor: pointer;
             display: flex;
