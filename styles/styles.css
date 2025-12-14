@@ -724,6 +724,9 @@ a:hover {
 		}
 		.text_lost_cash_container {
 			padding: 0 10px;
+			display: flex;
+		    width: 100%;
+		    max-width: 472px;
 		}
 		.text_lost_cash {
 			display: flex;
@@ -878,7 +881,7 @@ a:hover {
 			justify-content: center;
 		    position: relative;
 			width: 140px;
-			height: 150px;
+			height: 154px;
 		}
 		
 		/* Левые стрелки (оригинальное направление) */
@@ -957,11 +960,11 @@ a:hover {
 		}
 		
 		.lost_cash.animated #group_arrows_left .group_arrow1 {
-		    transform: translateX(5px) translateY(5px);
+		    transform: translateX(10px) translateY(5px);
 		}
 		
 		.lost_cash.animated #group_arrows_left .group_arrow2 {
-		    transform: translateX(-5px) translateY(10px);
+		    transform: translateX(5px) translateY(10px);
 		}
 		
 		/* Правые стрелки - конечные позиции */
@@ -970,11 +973,11 @@ a:hover {
 		}
 		
 		.lost_cash.animated #group_arrows_right .group_arrow1 {
-		    transform: translateX(-5px) translateY(5px);
+		    transform: translateX(-10px) translateY(5px);
 		}
 		
 		.lost_cash.animated #group_arrows_right .group_arrow2 {
-		    transform: translateX(5px) translateY(10px);
+		    transform: translateX(-5px) translateY(10px);
 		}
 		
 		/* Анимация пульсации после сближения */
