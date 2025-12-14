@@ -85,7 +85,12 @@ img, video {
   height: auto;
 }
 
-.video_background {
+#block1 {
+  position: relative;
+  min-height: 100vh;
+}
+
+#block1 .video_background {
   position: fixed; /* или absolute */
   top: 0;
   left: 0;
@@ -310,7 +315,7 @@ a:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: -170px -270px;
+    object-position: -169px -270px;
 }
 
 .container_left {
@@ -579,12 +584,13 @@ a:hover {
 			display: flex;
 		    flex-direction: column;
 		    gap: 56px;
-			max-width: 1242px;
 			width: 100%;
 			align-items: center;
-			padding: 0 180px;
 			position: relative;
 			overflow: hidden;
+			position: relative;
+			z-index: 1;
+			background: #000;
 			p {
 				line-height: 140%;
 				opacity: 0.6;
@@ -646,6 +652,9 @@ a:hover {
 			display: flex;
 		    flex-direction: row;
 		    gap: 28px;
+			width: 100%;
+		    max-width: 1164px;
+		    justify-content: space-between;
 		}
 
 		.block2_inf_left,
