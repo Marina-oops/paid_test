@@ -324,6 +324,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    function animateAllCounters() {
+        const counters = document.querySelectorAll('.counter-left, .counter-right');
+        
+        const promises = [];
+        
+        counters.forEach(counter => {
+            const finalValue = parseInt(counter.getAttribute('data-value'));
+            if (!isNaN(finalValue)) {
+                // Сбрасываем на 0
+                counter.textContent = '0';
+                
+                // Запускаем анимацию для каждого счетчика
+                promises.push(animateCounter(counter, finalValue, 800)); // 0.8 секунды
+            }
+        });
+        
+        return Promise.all(promises);
+    }
+
+    
     // Обновленная функция для анимации стрелок
     function animateArrows() {
         const lostCash = document.querySelector('.lost_cash');
@@ -413,6 +433,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     const rightBlock = block2.querySelector('.block2_inf_right');
                     if (leftBlock) leftBlock.classList.add('animated');
                     if (rightBlock) rightBlock.classList.add('animated');
+                    setTimeout(async () => {
+                        await animateAllCounters();
+                    }, 300);
+                    
                 }, 600);
                 
                 // 5. Показываем text_benefits_paid через 0.8 секунды
