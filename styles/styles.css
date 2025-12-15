@@ -756,6 +756,8 @@ a:hover {
 			text-align: center;
 		}
 
+		
+
 		.text_benefits_paid {
 			display: flex;
 		    flex-direction: column;
@@ -864,7 +866,18 @@ a:hover {
 				transform: translate(-50%, -50%) scale(1.02);
 		    }
 		}
+
+
+		.text_pleasure_calls h1 {
+		    position: relative;
+		}
 		
+		.counter-left,
+		.counter-right {
+		    display: inline-block;
+		    min-width: 40px;
+		    text-align: center;
+		}
 		/* Стили для счетчика */
 		.counter {
 		    display: inline-block;
@@ -882,6 +895,22 @@ a:hover {
 		        opacity: 1;
 		        transform: translateY(0);
 		    }
+		}
+
+		@keyframes countUpH1 {
+		    from {
+		        opacity: 0;
+		        transform: translateY(10px) scale(0.9);
+		    }
+		    to {
+		        opacity: 1;
+		        transform: translateY(0) scale(1);
+		    }
+		}
+
+		.text_pleasure_calls h1 .counter-left,
+		.text_pleasure_calls h1 .counter-right {
+		    animation: countUpH1 0.8s ease-out forwards;
 		}
 		
 		.t1 .counter {
