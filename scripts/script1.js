@@ -1,7 +1,7 @@
 // Конфигурация API и путей к изображениям
 const CONFIG = {
     API: {
-        BASE_URL: 'https://sputnik-db.dotindex-team.ru/api/swagger', // Замените на ваш URL бекенда
+        BASE_URL: 'https://sputnik-db.dotindex-team.ru', // Замените на ваш URL бекенда
         ENDPOINTS: {
             PROFILES: '/long_poll_profiles/'
         }
