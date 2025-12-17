@@ -1147,7 +1147,6 @@ a:hover {
 	  .background_level {
 		  width: 76px;
 		  height: 22px;
-		  position: absolute;
 		  z-index: 4;
 	  }
 	  .level {
@@ -1161,7 +1160,7 @@ a:hover {
 	    text-align: center;
 	    z-index: 6;
 	    position: absolute;
-	    top: 2px;
+	    top: 1px;
 	    left: 14px;
 	  }
 
