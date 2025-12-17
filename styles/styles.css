@@ -1089,8 +1089,7 @@ a:hover {
 		  top: 0;
 		  left: 0;
 		  width: 100%;
-		  height: 100vh;
-		  z-index: -1; /* отправляем на задний план */
+		  z-index: 1; /* отправляем на задний план */
 		}
 
 		.score {
@@ -1103,6 +1102,7 @@ a:hover {
 		    line-height: 140%;
 		    letter-spacing: 0.01em;
 			text-align: center;
+			z-index: 3;
 		}
 
        .place {
@@ -1115,6 +1115,7 @@ a:hover {
 			    line-height: 140%;
 			    letter-spacing: 0.01em;
 				text-align: center;
+		   		z-index: 3;
 	   }
 
 		.img_profile {
@@ -1123,6 +1124,8 @@ a:hover {
 			  left: 71px;
 			  width: 80px;
 		      height: 80px;
+			  object-fit: cover;
+  				z-index: 2;
 		}
 
 		.level_profile {
@@ -1131,6 +1134,7 @@ a:hover {
 			  left: 126px;
 			  width: 44px;
 		      height: 44px;
+			  z-index: 5;
 		}
        .container_level_name {
 		   display: flex;
@@ -1138,11 +1142,13 @@ a:hover {
 		   position: absolute;
 			  top: 19px;
 			  left: 128px;
+		   z-index: 4;
 	   }
 	  .background_level {
 		  width: 76px;
 		  height: 22px;
 		  position: absolute;
+		  z-index: 4;
 	  }
 	  .level {
 		width: 31px;
@@ -1153,6 +1159,7 @@ a:hover {
 	    line-height: 140%;
 	    letter-spacing: 0.01em;
 		text-align: center;
+		z-index: 6;
 	  }
 
 		.name {
@@ -1163,6 +1170,8 @@ a:hover {
 	    line-height: 140%;
 	    letter-spacing: 0.01em;
 		text-align: center;
+		z-index: 4;
+		
 	  }
 		.img_team {
 			position: absolute;
@@ -1170,6 +1179,7 @@ a:hover {
 			  left: 145px;
 			width: 20px;
 			height: 20px;
+			z-index: 3;
 		}
 
 		.progress_stats_container {
@@ -1177,8 +1187,9 @@ a:hover {
 		    gap: 2px;
 			position: absolute;
 			top: 71px;
-			left: 145px;
+			left: 176px;
 			height: 36px;
+			z-index: 3;
 		}
 
 		
