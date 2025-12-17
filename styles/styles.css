@@ -1071,6 +1071,118 @@ a:hover {
 		    animation: arrowPulseRight 2s ease-in-out infinite;
 		}
 
+		.container_for_employee {
+			  display: grid;
+			  grid-template-columns: repeat(auto-fit, minmax(730px, 1fr));
+			  width: 100%;
+			  gap: 16px;
+		}
+
+		.profile {
+		  position: relative;
+		  width: 730px;
+		  height: 97px;
+		}
+
+		.background_profile {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 100vh;
+		  z-index: -1; /* отправляем на задний план */
+		}
+
+		.score {
+			  position: absolute;
+			  top: 15px;
+			  left: 10px;
+			  font-weight: 600;
+			font-size: 20px;
+			color: #3479E9;
+		    line-height: 140%;
+		    letter-spacing: 0.01em;
+			text-align: center;
+		}
+
+       .place {
+		   		position: absolute;
+				  top: 55px;
+				  left: 45px;
+		        font-weight: 600;
+				font-size: 16px;
+				color: #fff;
+			    line-height: 140%;
+			    letter-spacing: 0.01em;
+				text-align: center;
+	   }
+
+		.img_profile {
+			  position: absolute;
+			  top: 8px;
+			  left: 71px;
+			  width: 80px;
+		      height: 80px;
+		}
+
+		.level_profile {
+			position: absolute;
+			  top: 8px;
+			  left: 126px;
+			  width: 44px;
+		      height: 44px;
+		}
+       .container_level_name {
+		   display: flex;
+		   gap: 12px;
+		   position: absolute;
+			  top: 19px;
+			  left: 128px;
+	   }
+	  .background_level {
+		  width: 76px;
+		  height: 22px;
+		  position: absolute;
+	  }
+	  .level {
+		width: 31px;
+		height: 10px;
+		font-weight: 600;
+		font-size: 16px;
+		color: #fff;
+	    line-height: 140%;
+	    letter-spacing: 0.01em;
+		text-align: center;
+	  }
+
+		.name {
+		width: 237px;
+		font-weight: 600;
+		font-size: 16px;
+		color: #fff;
+	    line-height: 140%;
+	    letter-spacing: 0.01em;
+		text-align: center;
+	  }
+		.img_team {
+			position: absolute;
+			  top: 71px;
+			  left: 145px;
+			width: 20px;
+			height: 20px;
+		}
+
+		.progress_stats_container {
+			display: flex;
+		    gap: 2px;
+			position: absolute;
+			top: 71px;
+			left: 145px;
+			height: 36px;
+		}
+
+		
+
 		@media (max-width: 768px) {
 		  #block1 {
 		    min-height: auto;
