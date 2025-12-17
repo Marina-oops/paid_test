@@ -1174,8 +1174,8 @@ a:hover {
 		text-align: center;
 		z-index: 4;
 		position: absolute;
-	    top: 20px;
-	    left: 200px;
+	    top: -1px;
+	    left: 40px;
 	  }
 		.img_team {
 			position: absolute;
