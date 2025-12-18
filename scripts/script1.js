@@ -126,7 +126,7 @@ class ProfilesManager {
         // Аватар
         const imgProfile = element.querySelector('.img_profile');
         if (profileData.image_url) {
-            imgProfile.src = getImageUrl(profileData.image_url.replace('.png', ''));
+            imgProfile.src = getImageUrl(profileData.image_url.replace('.jpg', ''));
             imgProfile.alt = profileData.name || 'Аватар';
         }
         
@@ -141,7 +141,7 @@ class ProfilesManager {
         // Команда
         const teamImg = element.querySelector('.img_team');
         if (profileData.team) {
-            const teamImageName = profileData.team.replace('.png', '');
+            const teamImageName = profileData.team.replace('.jpg', '');
             teamImg.src = getImageUrl(teamImageName);
             teamImg.alt = 'Команда';
         }
@@ -297,9 +297,9 @@ const mockProfiles = [
         k: 15, // Для уровня 17, последний полученный значок - 15
         progress_percent: 75,
         stats: [
-            { label: "gb", value: 120, imgPath: "gb_icon.png" },
-            { label: "yb", value: 85, imgPath: "yb_icon.png" },
-            { label: "rb", value: 48, imgPath: "rb_icon.png" }
+            { label: "gb", value: 120},
+            { label: "yb", value: 85},
+            { label: "rb", value: 48}
         ]
     },
     {
@@ -310,9 +310,9 @@ const mockProfiles = [
         k: 20, // Для уровня 22, последний полученный значок - 20
         progress_percent: 60,
         stats: [
-            { label: "gb", value: 95, imgPath: "gb_icon.png" },
-            { label: "yb", value: 67, imgPath: "yb_icon.png" },
-            { label: "rb", value: 36, imgPath: "rb_icon.png" }
+            { label: "gb", value: 95},
+            { label: "yb", value: 67},
+            { label: "rb", value: 36}
         ]
     },
     {
@@ -323,9 +323,9 @@ const mockProfiles = [
         k: 10, // Для уровня 12, последний полученный значок - 10
         progress_percent: 90,
         stats: [
-            { label: "gb", value: 80, imgPath: "gb_icon.png" },
-            { label: "yb", value: 45, imgPath: "yb_icon.png" },
-            { label: "rb", value: 25, imgPath: "rb_icon.png" }
+            { label: "gb", value: 80},
+            { label: "yb", value: 45},
+            { label: "rb", value: 25}
         ]
     }
 ];
