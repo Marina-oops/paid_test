@@ -1204,7 +1204,7 @@ a:hover {
 		    display: flex;
 		    align-items: center;
 		    background: rgba(255, 255, 255, 0.9);
-		    padding: 16px 0px;
+		    padding: 0px 16px;
 		    border-radius: 6px;
 		    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		    min-width: 120px;
@@ -1223,19 +1223,19 @@ a:hover {
 		}
 		
 		/* Цвета для разных типов статистики */
-		.stat-row .stat-gb {
-		    background: rgba(172, 220, 94, 0.2); /* Зеленый для gb */
-			border: 2px solid #ACDC5E;
+		.stat-row.stat-gb {
+		    background: rgba(172, 220, 94, 0.2);
+		    border: 2px solid #ACDC5E;
 		}
 		
-		.stat-row .stat-yb {
-		    background: rgba(240, 201, 70, 0.2); /* Зеленый для yb */
-			border: 2px solid #F0C946;
+		.stat-row.stat-yb {
+		    background: rgba(240, 201, 70, 0.2);
+		    border: 2px solid #F0C946;
 		}
 		
-		.stat-row .stat-rb {
-		    background: rgba(255, 147, 79, 0.2); /* Зеленый для rb */
-			border: 2px solid #FF934F;
+		.stat-row.stat-rb {
+		    background: rgba(255, 147, 79, 0.2);
+		    border: 2px solid #FF934F;
 		}
 		
 		.loading {
