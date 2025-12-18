@@ -1,10 +1,7 @@
 // Конфигурация API и путей к изображениям
 const CONFIG = {
     API: {
-        BASE_URL: 'https://sputnik-db.dotindex-team.ru',
-        ENDPOINTS: {
-            PROFILES: '/long_poll_profiles/'
-        }
+        PROFILES_URL: 'https://sputnik-db.dotindex-team.ru/api/long_poll_profiles/'
     },
     IMAGES: {
         BASE_URL: 'https://sputnik-db.dotindex-team.ru/api/static/images/',
@@ -52,7 +49,7 @@ class ProfilesManager {
 
     async loadProfiles() {
         try {
-            const response = await fetch(`${CONFIG.API.BASE_URL}${CONFIG.API.ENDPOINTS.PROFILES}`);
+            const response = await fetch(CONFIG.API.PROFILES_URL);
             
             if (!response.ok) {
                 throw new Error(`Ошибка HTTP: ${response.status}`);
