@@ -140,7 +140,7 @@ class ProfilesManager {
         // Уровень (значок) - используем k для определения картинки
         const levelProfile = element.querySelector('.level_profile');
         if (profileData.k !== undefined && profileData.k !== null) {
-            const levelImageUrl = getLevelImageName(profileData.k);
+            const levelImageUrl = getLevelImageUrl(profileData.k);
             levelProfile.src = levelImageUrl;
             levelProfile.alt = `Уровень ${profileData.lvl}`;
         }
