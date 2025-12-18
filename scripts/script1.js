@@ -126,7 +126,7 @@ class ProfilesManager {
         // Аватар
         const imgProfile = element.querySelector('.img_profile');
         if (profileData.image_url) {
-            imgProfile.src = getImageUrl(profileData.image_url.replace('.jpg', ''));
+            imgProfile.src = getImageUrl(profileData.image_url.replace('.png', ''));
             imgProfile.alt = profileData.name || 'Аватар';
         }
         
@@ -141,7 +141,7 @@ class ProfilesManager {
         // Команда
         const teamImg = element.querySelector('.img_team');
         if (profileData.team) {
-            const teamImageName = profileData.team.replace('.jpg', '');
+            const teamImageName = profileData.team.replace('.png', '');
             teamImg.src = getImageUrl(teamImageName);
             teamImg.alt = 'Команда';
         }
@@ -231,26 +231,7 @@ class ProfilesManager {
         const statElement = document.createElement('div');
         statElement.className = `stat-row stat-${stat.label}`;
         
-        // Определяем иконку в зависимости от типа
-        let iconName = '';
-        switch(stat.label) {
-            case 'gb':
-                iconName = 'gb_icon';
-                break;
-            case 'yb':
-                iconName = 'yb_icon';
-                break;
-            case 'rb':
-                iconName = 'rb_icon';
-                break;
-            default:
-                iconName = 'default_icon';
-        }
-        
-        const iconUrl = getImageUrl(iconName);
-        
         statElement.innerHTML = `
-            <img src="${iconUrl}" alt="${stat.label}" class="stat-icon-small">
             <div class="stat-content">
                 <div class="stat-label-small">${this.getStatLabel(stat.label)}</div>
                 <div class="stat-value-small">${stat.value || '0'}</div>
