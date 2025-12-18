@@ -5,21 +5,28 @@ const CONFIG = {
     },
     IMAGES: {
         BASE_URL: 'https://sputnik-db.dotindex-team.ru/api/static/images/',
-        LEVELS: 'level', // Базовое имя для картинок уровня
-        EXTENSION: '.png'
+        POSSIBLE_EXTENSIONS: ['.png', '.jpg', '.jpeg']
     }
 };
 
-// Вспомогательная функция для определения картинки уровня по k
-function getLevelImageName(k) {
-    // k - номер полученного значка уровня (например, для уровня 17 -> k=15)
-    // Используем переданный k напрямую
-    return `${CONFIG.IMAGES.BASE_URL}${CONFIG.IMAGES.LEVELS}${k}${CONFIG.IMAGES.EXTENSION}`;
+// Упрощенная функция для получения URL изображения
+function getImageUrl(imageName, defaultExtension = '.png') {
+    const baseUrl = CONFIG.IMAGES.BASE_URL;
+    
+    // Если имя уже содержит расширение, используем как есть
+    if (imageName && (imageName.includes('.png') || imageName.includes('.jpg') || imageName.includes('.jpeg'))) {
+        return baseUrl + imageName;
+    }
+    
+    // Иначе добавляем расширение по умолчанию
+    return baseUrl + imageName + defaultExtension;
 }
 
-// Вспомогательная функция для формирования полного URL изображения
-function getImageUrl(imageName) {
-    return `${CONFIG.IMAGES.BASE_URL}${imageName}${CONFIG.IMAGES.EXTENSION}`;
+// Вспомогательная функция для определения картинки уровня по k
+function getLevelImageUrl(k) {
+    // k - номер полученного значка уровня
+    // Картинки уровней обычно в формате PNG: level15.png
+    return getImageUrl('level' + k, '.png');
 }
 
 // Основной класс для работы с профилями
@@ -126,7 +133,7 @@ class ProfilesManager {
         // Аватар
         const imgProfile = element.querySelector('.img_profile');
         if (profileData.image_url) {
-            imgProfile.src = getImageUrl(profileData.image_url.replace('.jpg', ''));
+            imgProfile.src = getImageUrl(profileData.image_url, '.jpg');
             imgProfile.alt = profileData.name || 'Аватар';
         }
         
@@ -141,8 +148,7 @@ class ProfilesManager {
         // Команда
         const teamImg = element.querySelector('.img_team');
         if (profileData.team) {
-            const teamImageName = profileData.team.replace('.jpg', '');
-            teamImg.src = getImageUrl(teamImageName);
+            teamImg.src = getImageUrl(profileData.team, '.jpg');
             teamImg.alt = 'Команда';
         }
         
