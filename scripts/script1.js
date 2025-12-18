@@ -161,12 +161,6 @@ class ProfilesManager {
         const statsContainer = element.querySelector('.progress_stats_container');
         statsContainer.innerHTML = '';
         
-        // Прогресс бар (если есть progress_percent)
-        if (profileData.progress_percent !== undefined) {
-            const progressBar = this.createProgressBar(profileData.progress_percent);
-            statsContainer.appendChild(progressBar);
-        }
-        
         // Статистика gb, yb, rb
         this.renderGbYbRbStats(statsContainer, profileData.stats);
     }
@@ -180,7 +174,7 @@ class ProfilesManager {
                 }
             });
         }
-        return total;
+        return Math.round(total);
     }
 
     updatePlaceElement(placeElement, place) {
@@ -189,16 +183,18 @@ class ProfilesManager {
         // Обновляем цвет места в зависимости от позиции
         if (place === 1) {
             placeElement.style.backgroundColor = '#FFD700'; // Золотой
-            placeElement.style.color = '#000';
+            placeElement.style.color = '#fff';
         } else if (place === 2) {
             placeElement.style.backgroundColor = '#C0C0C0'; // Серебряный
-            placeElement.style.color = '#000';
+            placeElement.style.color = '#fff';
         } else if (place === 3) {
             placeElement.style.backgroundColor = '#CD7F32'; // Бронзовый
-            placeElement.style.color = '#000';
-        } else {
-            placeElement.style.backgroundColor = '#3479E9';
             placeElement.style.color = '#fff';
+        } else if (place === 4) {
+            placeElement.style.backgroundColor = '#B7A8D0'; // Фиолетовый
+            placeElement.style.color = '#fff';
+        } else {
+            placeElement.style.color = 'rgba(255, 255, 255, 0.7)';
         }
     }
 
@@ -239,7 +235,6 @@ class ProfilesManager {
         
         statElement.innerHTML = `
             <div class="stat-content">
-                <div class="stat-label-small">${this.getStatLabel(stat.label)}</div>
                 <div class="stat-value-small">${stat.value || '0'}</div>
             </div>
         `;
